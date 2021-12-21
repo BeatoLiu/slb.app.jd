@@ -1,0 +1,40 @@
+@import '../../local.less';
+.product-submit{
+
+	.contact{
+		background: #fff;
+		padding: @basePadding;
+		p{
+			margin-top: 10*@fontSize;
+		}
+		.detail-address{
+			font-weight: bold;
+			font-size: 16px;
+		}
+		.da-mobile{
+			margin-left: @baseMargin;
+		}
+	}
+	.line{
+		background: #fff;
+	}
+	.goods-info{
+		background: #fff;
+		padding: @basePadding;
+		.goods-img{
+			width: 300*@fontSize;
+			img{
+				width:100%
+			}
+		}
+		.goods-price{
+			color: #f44336;
+			font-size: 18px;
+			&::before{
+				content:'￥';
+				display: inline-block;
+				font-size: 14px;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@import '../../../local.less';
+.stock-detail {
+	//text-align: center;
+	//line-height: 44px;
+	border-top: @baseMargin solid #f4f4f4;
+	padding: @basePadding;
+	align-items: flex-start;
+	.left{
+		width:10%;
+	}
+	.right{
+		width: 10%;
+		text-align: right;
+	}
+	.middle{
+		width: 80%;
+		.address{
+			white-space: nowrap;
+			overflow:hidden;
+			text-overflow:ellipsis;
+		}
+	}
+}
