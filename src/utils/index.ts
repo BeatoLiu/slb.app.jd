@@ -8,9 +8,9 @@ export const getPageTitle = (routes: IRouteObject[]) => {
 				if (j.index) {
 					j.path = item.path
 				} else {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 					// @ts-ignore
-                    j.path = item.path + j.path
+					j.path = item.path + j.path
 				}
 				arr.push(j)
 			})

@@ -22,7 +22,7 @@ export const ProductDetail = () => {
 	const submit = () => {
 		navigate('/productDetail/submit', { ...location.state })
 	}
-	// console.log(location)
+	// console.log('location')
 	useEffect(() => {
 		getProductSkuImage({ skuIdList: [location.state.sku] }).then(res => {
 			if (res.resultCode === 1) {

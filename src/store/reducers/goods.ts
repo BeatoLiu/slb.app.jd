@@ -30,7 +30,7 @@ const initGoodsState: IState = {
 		introduction: ''
 	},
 	addressList: JSON.parse(localStorage.addressList || '[]') || [],
-	addressInfo: JSON.parse(localStorage.addressInfo || '{}') ||{}
+	addressInfo: JSON.parse(localStorage.addressInfo || '{}') || {}
 }
 
 const goods = (state: IState = initGoodsState, action: { type: ActionTypes; data: IState }) => {

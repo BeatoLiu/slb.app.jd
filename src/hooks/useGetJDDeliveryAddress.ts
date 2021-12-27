@@ -10,7 +10,7 @@ import { setAddressInfo, setAddressList } from '@/store/actions/goods'
  */
 export const useGetJDDeliveryAddress = () => {
 	const addressList = useSelector((state: IRootState) => state.goods.addressList)
-	const addressInfo = useSelector((state:IRootState)=>state.goods.addressInfo)
+	const addressInfo = useSelector((state: IRootState) => state.goods.addressInfo)
 	const [list, setList] = useState<GetJDDeliveryAddressMode[]>(addressList)
 
 	const dispatch = useDispatch()

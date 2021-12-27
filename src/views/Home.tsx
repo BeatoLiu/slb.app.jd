@@ -8,7 +8,7 @@ import { GetProductDetailItem } from '@/apis/models/homeModel'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 // import types from '@/store/constant'
-import {setGoodsDetail} from "@/store/actions/goods";
+import { setGoodsDetail } from '@/store/actions/goods'
 
 interface IProps {
 	setGoodsDetail: (goodsInfo: GetProductDetailItem) => void
@@ -38,7 +38,6 @@ const Home: React.FC<IProps> = (props: IProps) => {
 		return () => setList([])
 	}, [])
 	const goToDetail = (item: GetProductDetailItem) => {
-
 		props.setGoodsDetail(item)
 		navigate('/productDetail', { state: { sku: item.sku } })
 	}
@@ -81,8 +80,7 @@ const Home: React.FC<IProps> = (props: IProps) => {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-	setGoodsDetail: (goodsInfo: GetProductDetailItem) => dispatch(setGoodsDetail({goodsInfo}))
-
+	setGoodsDetail: (goodsInfo: GetProductDetailItem) => dispatch(setGoodsDetail({ goodsInfo }))
 })
 
 export default auth(connect(null, mapDispatchToProps)(Home))

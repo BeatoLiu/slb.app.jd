@@ -10,6 +10,7 @@ const ChooseArea = lazy(()=>import('@/components/ChooseArea'))
 import { useLocation } from 'react-router'
 
 const Stock = () => {
+	console.log(111)
 	// const skuId = useRef(props.skuId)
 	const { setList, address } = useGetJDDeliveryAddress()
 	// const [b, setAddress] = useState<GetJDDeliveryAddressMode>()

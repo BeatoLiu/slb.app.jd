@@ -1,49 +1,55 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { rootState } from '@/store'
-import { GetProductDetailItem } from '@/apis/models/homeModel'
-import { Dispatch } from 'redux'
-import { Button,Empty } from 'react-vant'
-import types from '@/store/constant'
+// import { connect } from 'react-redux'
+// import { IRootState } from '@/store'
+// import { GetProductDetailItem } from '@/apis/models/homeModel'
+// import { Dispatch } from 'redux'
+import { Empty } from 'react-vant'
+import { NavLink } from 'react-router-dom'
+// import types from '@/store/constant'
 
-interface IProps {
-	goodsInfo?: GetProductDetailItem,
-	setGoodsInfo?:(count:number)=>void
-}
-interface IState{
-	price:number
-}
-class NotFound extends Component<IProps> {
-	state:IState = {price:this.props.goodsInfo?.jdProductPriceBean.price as number}
-	setPrice = (count:number)=>{
-		this.setState({price:this.state.price+count})
-		this.props.setGoodsInfo && this.props.setGoodsInfo(this.state.price)
-	}
+// interface IProps {
+// 	goodsInfo?: GetProductDetailItem,
+// 	setGoodsInfo?:(count:number)=>void
+// }
+// interface IState{
+// 	price:number
+// }
+class NotFound extends Component {
+	// state:IState = {price:this.props.goodsInfo?.jdProductPriceBean.price as number}
+	// setPrice = (count:number)=>{
+	// 	this.setState({price:this.state.price+count})
+	// 	this.props.setGoodsInfo && this.props.setGoodsInfo(this.state.price)
+	// }
 	render() {
-		console.log(this.props)
 		return (
-			<div>
+			<div style={{ textAlign: 'center' }}>
 				<Empty image="error" description="404" />
 				<br />
-				{this.props.goodsInfo?.jdProductPriceBean.price}
 				<br />
-				<Button type="danger" onClick={()=>this.setPrice(2)}>回到首页</Button>
+				<NavLink to="/" replace={true}>
+					回到首页
+				</NavLink>
+				{/*<Button type="danger" onClick={() => <Navigate to="/" replace={true}/>}>*/}
+				{/*	回到首页*/}
+				{/*</Button>*/}
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = (state: rootState) => {
-	return { ...state.goods }
-}
+export default NotFound
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-	setGoodsInfo: (count:number) => {
-		console.log(count)
-		dispatch({
-			type: types.SET_GOODS_DETAIL,
-			data: { goodsInfo: {jdProductPriceBean: {price: ++count }}}
-		})
-	}
-})
-export default connect(mapStateToProps, mapDispatchToProps)(NotFound)
+// const mapStateToProps = (state: IRootState) => {
+// 	return { ...state.goods }
+// }
+//
+// const mapDispatchToProps = (dispatch: Dispatch) => ({
+// 	setGoodsInfo: (count:number) => {
+// 		console.log(count)
+// 		dispatch({
+// 			type: types.SET_GOODS_DETAIL,
+// 			data: { goodsInfo: {jdProductPriceBean: {price: ++count }}}
+// 		})
+// 	}
+// })
+// export default connect(mapStateToProps, mapDispatchToProps)(NotFound)

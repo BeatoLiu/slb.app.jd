@@ -1,39 +1,54 @@
 @import '../../local.less';
-.product-submit{
-
-	.contact{
-		background: #fff;
+.product-submit {
+	.contact {
 		padding: @basePadding;
-		p{
-			margin-top: 10*@fontSize;
+		background: #fff;
+		p {
+			margin-top: 10 * @fontSize;
 		}
-		.detail-address{
+		.detail-address {
 			font-weight: bold;
 			font-size: 16px;
 		}
-		.da-mobile{
+		.da-mobile {
 			margin-left: @baseMargin;
 		}
 	}
-	.line{
+	.line {
 		background: #fff;
 	}
-	.goods-info{
-		background: #fff;
+	.goods-info {
 		padding: @basePadding;
-		.goods-img{
-			width: 300*@fontSize;
-			img{
-				width:100%
+		background: #fff;
+		.goods-img {
+			width: 300 * @fontSize;
+			img {
+				width: 100%;
 			}
 		}
-		.goods-price{
+		.goods-price {
 			color: #f44336;
 			font-size: 18px;
-			&::before{
-				content:'￥';
+			&::before {
 				display: inline-block;
+				content: '￥';
 				font-size: 14px;
+			}
+		}
+	}
+	.other-fee {
+		margin-top: @baseMargin;
+		padding: @basePadding;
+		background: #fff;
+		div {
+			margin-top: @baseMargin;
+		}
+		.total-fee {
+			padding-top: @basePadding;
+			text-align: right;
+			border-top: 1px solid #eee;
+			span {
+				color: #f44336;
 			}
 		}
 	}

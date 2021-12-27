@@ -1,26 +1,34 @@
-@import "../../../local.less";
-.address-item{
+@import '../../../local.less';
+.address-item {
+	padding: @basePadding;
 	background: #fff;
-	padding:  @basePadding;
 	border-bottom: 1px solid #eee;
-	.da-acquiesce{
-		display: inline-block;
-		padding: 0 4px;
-		margin-right: 4px;
-		border-radius: 2px;
-		color:#fff;
-		background: #f44336;
+	.address-content{
+		width:80%;
 	}
-	.da-detail-address{
+	.da-acquiesce {
+		display: inline-block;
+		margin-right: 4px;
+		padding: 0 4px;
+		color: #fff;
+		background: #f44336;
+		border-radius: 2px;
+	}
+	.da-detail-address {
+		margin-top: 5px;
 		font-weight: bold;
 		font-size: 16px;
-		margin-top: 5px;
 	}
-	.da-info{
+	.da-info {
 		margin-top: 5px;
-		.da-mobile{
+		.da-mobile {
 			margin-left: 20px;
-
 		}
+	}
+}
+.btn-list {
+	height: 100%;
+	button {
+		height: 100%;
 	}
 }

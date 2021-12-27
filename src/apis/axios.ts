@@ -13,8 +13,8 @@ axios.defaults.withCredentials = true
 axios.defaults.baseURL = hostName
 
 axios.interceptors.request.use((config: AxiosRequestConfig) => {
-	const token = localStorage.token
-	;(config.headers as AxiosRequestHeaders)['token'] = token
+	// const token = localStorage.token
+	(config.headers as AxiosRequestHeaders)['token'] = localStorage.token
 	return config
 })
 

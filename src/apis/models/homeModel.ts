@@ -75,8 +75,50 @@ interface SkuNumsItem {
 interface GetProductNewStockByIdItem {
 	skuId: string
 	areaId: string
-	stockStateId: number;
-	remainNum:string;
-	stockStateDesc:string
+	stockStateId: number
+	remainNum: string
+	stockStateDesc: string
 }
 export type GetProductNewStockByIdRes = baseResList<GetProductNewStockByIdItem>
+
+/**
+ * @Description 7.3 提交订单:提交订单信息，生成京东订单。https://bizapi.jd.com/api/order/submitOrder
+ * @param sku String 是  下单商品信息
+ * Json数组类型的字符串，参数格式：[{"skuId":商品编号, "num":商品数量, "price":10,"bNeedGift":false, "yanbao":[{"skuId":商品编号}]}] (最高支持100种商品)
+ * @param name    String 是  收货人姓名，最多20个字符
+ * @param areaId   Integer    地区id
+ * @param address String 是  收货人详细地址，最多100个字符
+ * @param mobile  String 是  手机号，最多20个字符
+ * @param regCompanyName  String 是  专票资质公司名称 该字段必填。
+ * @param regCode String 是  专票资质纳税人识别号 该字段必填。
+ * @param isUseBalance Integer    是  使用余额paymentType=4时，此值固定是1 其他支付方式0
+ * @param submitState Integer    是  是否预占库存，0是预占库存（需要调用确认订单接口），1是不预占库存，直接进入生产
+ * @param invoiceState Integer 是  开票方式(2为集中开票，4 订单完成后开票)
+ * @param invoiceType Integer    是  发票类型（2增值税专用发票；3 电子票） 当发票类型为2时，开票方式只支持2集中开票
+ * @param invoicePhone    String 是  收票人电话
+ * @param selectedInvoiceTitle    Integer    是  发票类型：4：个人，5：单位
+ * @param invoiceContent  Integer    是  1:明细，100：大类  备注:若增值税专用发票则只能选1 明细
+ * @Return
+ * @Date 2021-12-08 17:14:51
+ **/
+export interface SubmitOrderModel {
+	sku: SkuItem[]
+	name: string
+	areaId: number
+	address: string
+	mobile: string
+	regCompanyName: string
+	regCode: string
+	isUseBalance: number
+	submitState: number
+	// paymentType:number
+	invoiceState: number
+	invoiceType: number
+	invoicePhone: string
+	selectedInvoiceTitle: string
+	invoiceContent: number
+}
+interface SkuItem extends SkuNumsItem {
+	price: number
+	bNeedGift: boolean
+}

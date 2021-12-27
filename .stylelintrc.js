@@ -1,15 +1,17 @@
 module.exports = {
-	extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-	plugins: ['stylelint-order'],
+	extends: ['stylelint-config-standard', 'stylelint-config-rational-order', 'stylelint-config-prettier'],
+	plugins: ['stylelint-order', 'stylelint-declaration-block-no-ignored-properties'],
 	rules: {
-		indentation: 'tab',
-		'plugin/declaration-block-no-ignored-properties': false,
+		'prettier/prettier': true,
+		indentation: [4,'tab'],
+		'plugin/declaration-block-no-ignored-properties': true,
 		'comment-empty-line-before': null,
 		'declaration-empty-line-before': null,
 		'function-name-case': 'lower',
 		'no-descending-specificity': null,
 		'no-invalid-double-slash-comments': null,
 		'rule-empty-line-before': false
+		// 'unit-whitelist': ['@']
 	},
-	ignoreFiles: ['node_modules/**/*', 'build/**/*']
+	ignoreFiles: ['node_modules/**/*', 'slbAppJD/**/*']
 }

@@ -55,7 +55,7 @@ const getPicPath = () => {
 const hostName = getHostName()
 const picName = getPicName()
 const picDisplayPath = getPicPath()
-const localtionOrigin = window.location.origin
+const locationOrigin = window.location.origin
 const jdImgPath = 'http://img13.360buyimg.com/n1/'
 
 export {
@@ -66,6 +66,6 @@ export {
 	// 項目圖片的外網地址
 	picDisplayPath,
 	// 項目地址
-	localtionOrigin,
+	locationOrigin,
 	jdImgPath
 }
