@@ -1,5 +1,19 @@
 @import '../local.less';
 
+.home{
+	padding-bottom: 50px;
+	header {
+		background: linear-gradient(180deg, @primaryColor 0%, @primaryColor 100%);
+		// 解決垂直邊界重合問題
+		&::before {
+			display: table;
+			content: '';
+		}
+	}
+	.grid{
+		margin-top: @baseMargin;
+	}
+}
 .list {
 	padding: 20 * @fontSize;
 

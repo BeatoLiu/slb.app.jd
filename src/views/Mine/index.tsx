@@ -2,7 +2,7 @@ import React from 'react'
 import { Cell } from 'react-vant'
 import { useNavigate } from 'react-router'
 
-export default function index() {
+export default function Index() {
 	const navigate = useNavigate()
 	const navList = [{ title: '我的地址', path: '/mine/address', isShow: true }]
 	return (
