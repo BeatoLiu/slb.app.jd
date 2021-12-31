@@ -7,5 +7,6 @@ module.exports = {
 	rules: {
 		'react-hooks/rules-of-hooks': 'error',
 		indent: ['off', 4],
+		'@typescript-eslint/ban-ts-comment': 0
 	}
 }

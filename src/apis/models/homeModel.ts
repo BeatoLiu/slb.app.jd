@@ -1,9 +1,9 @@
-import { baseResList, baseResT } from './base'
+import { basePageParams, baseResList, baseResT } from "./base";
 
 /**
  * @param sku 产品编号
  */
-export interface Isku {
+export interface ISku {
 	sku: number
 }
 
@@ -11,10 +11,14 @@ export interface Isku {
  * @param page_num 分类编号
  */
 export interface IPageNum {
-	page_num: string
+	page_num: string;
 }
 
-export interface GetProductDetailStyleModel extends Isku {
+export interface IGetSkuByPageModel extends IPageNum{
+	offset: number
+}
+
+export interface GetProductDetailStyleModel extends ISku {
 	queryExts: string[]
 }
 
@@ -121,4 +125,15 @@ export interface SubmitOrderModel {
 interface SkuItem extends SkuNumsItem {
 	price: number
 	bNeedGift: boolean
+}
+
+/**
+ * @description  搜索商品:根据搜索条件查询符合要求的商品列表
+ * @param sku 商品编号，支持批量，以“,”（半角）分隔  (最高支持100个商品)
+ * @param keyword  搜索关键词
+ * @param sortType 销量降序="sale_desc";价格升序="price_asc"; 价格降序="price_desc"; 按15日销量排序="sort_days_15_qtty_desc";按30日销量排序="sort_days_30_qtty_desc";
+ */
+export interface IGetProductSearchModel extends basePageParams{
+	keyword:string;
+	sortType:string;
 }
