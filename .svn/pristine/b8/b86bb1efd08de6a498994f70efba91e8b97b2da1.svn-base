@@ -1,0 +1,32 @@
+import { ActionBar, Cell, Popup } from 'react-vant'
+import React, { useState } from 'react';
+import AddInvoiceInfo from '@/components/AddInvoiceInfo';
+
+const Invoice = () => {
+	const [show, setShow] = useState(false)
+	const submit = () => {}
+	return(
+		<>
+			<div className="invoice-content">
+				<Cell title="发票" isLink onClick={()=>setShow(true)}/>
+			</div>
+			<Popup
+				visible={show}
+				closeable
+				title="发票"
+				position="bottom"
+				round
+				closeOnClickOverlay
+				onClickOverlay={()=>setShow(false)}
+				onClickCloseIcon={()=>setShow(false)}
+			>
+				<AddInvoiceInfo onSubmit={submit} />
+				{/*<ActionBar>*/}
+				{/*	<ActionBar.Button icon="plus" type="danger" text="提交" onClick={() => submit()} />*/}
+				{/*</ActionBar>*/}
+			</Popup>
+		</>
+	)
+
+}
+export default Invoice

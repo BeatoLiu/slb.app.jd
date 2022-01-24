@@ -1,0 +1,18 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { HashRouter } from 'react-router-dom'
+import './index.less'
+import App from './App'
+import { Provider } from 'react-redux'
+import store from '@/store'
+
+import.meta.env.MODE === 'development' && (localStorage.token = 'bff07759f072896d8134a63b7e8846c0')
+
+ReactDOM.render(
+	<Provider store={store}>
+		<HashRouter>
+			<App />
+		</HashRouter>
+	</Provider>,
+	document.getElementById('root')
+)

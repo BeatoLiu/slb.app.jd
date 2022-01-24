@@ -1,0 +1,33 @@
+//.app-header {
+//	// text-align: right;
+//	// display: flex;
+//	// position:relative;
+//	// justify-content: space-between;
+//	// padding: 60px 50% 10px 10px;
+//	box-sizing: border-box;
+//	//height: 46px;
+//	text-align: center;
+//	background-color: #fff;
+//	// padding-top: 44px;
+//	// padding-bottom: 10px;
+//}
+
+.is-need-bg {
+	background: linear-gradient(180deg, #F94230 0%, #F94230 100%);
+	// background: linear-gradient(180deg, #fcd755 0%, #fbcb50 100%);
+
+	.rv-nav-bar {
+		.van-icon {
+			color: #fff;
+		}
+		background: linear-gradient(90deg, #F94230 0%, #F94230 100%);
+		// background: linear-gradient(180deg, #fcd755 0%, #fbcb50 100%);
+
+		.rv-nav-bar__title {
+			color: #fff;
+		}
+	}
+	.rv-hairline--bottom::after{
+		border:none;
+	}
+}

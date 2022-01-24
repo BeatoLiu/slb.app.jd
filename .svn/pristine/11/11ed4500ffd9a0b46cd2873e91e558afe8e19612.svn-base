@@ -1,0 +1,52 @@
+@import '../../local.less';
+
+.product-detail {
+	background: #fff;
+
+	.swiper-container {
+		height: 0;
+		padding-bottom: 100vw;
+	}
+
+	.product-content {
+		padding: @basePadding;
+		box-shadow: 0 0 2px #eee inset;
+		//border-bottom: 5px solid #f4f4f4;
+		//border-top: 1px solid #666;
+
+		.price {
+			color: #f30;
+			font-weight: bold;
+			font-size: 20px;
+
+			&::before {
+				display: inline-block;
+				font-weight: 400;
+				font-size: 14px;
+				content: '￥';
+			}
+		}
+
+		.goods-name {
+			margin-top: 10px;
+			font-weight: bold;
+			font-size: 16px;
+			letter-spacing: 1px;
+		}
+	}
+
+	.detail-img {
+		line-height: 44px;
+		text-align: center;
+		border-top: @baseMargin solid #f4f4f4;
+	}
+
+	.detail-params {
+		padding: @basePadding;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+

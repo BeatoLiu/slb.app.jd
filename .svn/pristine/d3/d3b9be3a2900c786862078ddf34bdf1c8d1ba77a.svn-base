@@ -1,0 +1,20 @@
+import React from 'react'
+import AddInvoiceInfo from '@/components/AddInvoiceInfo'
+import { IAddJDInvoiceInfoModel } from '@/apis/models/invoiceModel'
+import { addJDInvoiceInfo } from '@/apis/invoice'
+import { useNavigate } from 'react-router-dom'
+import { Toast } from 'react-vant'
+const AddInvoice = () => {
+	const navigate = useNavigate()
+	const onSubmit = (params: IAddJDInvoiceInfoModel) => {
+		addJDInvoiceInfo(params).then(res => {
+			if (res.resultCode === 1) {
+				Toast('添加成功')
+				navigate(-1)
+			}
+		})
+	}
+	return <AddInvoiceInfo onSubmit={onSubmit} />
+}
+
+export default AddInvoice
