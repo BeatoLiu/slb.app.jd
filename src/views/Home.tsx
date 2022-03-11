@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { getProductPageNum, getSkuByPage, getProductDetail } from '@/apis/home'
 import { auth } from '@/components/wrapper/auth'
-import { jdImgPath, picDisplayPath } from '@/utils/config'
+import { jdImgPath, assetsOrigin } from '@/utils/config'
 import { useNavigate } from 'react-router'
 import { GetProductDetailItem, IGetSkuByPageModel } from '@/apis/models/homeModel'
 import { Grid, Icon, List, PullRefresh, Search, Sticky } from 'react-vant'
@@ -136,7 +136,7 @@ const Home = () => {
 				</header>
 			</Sticky>
 			<section className="banner">
-				<img src={picDisplayPath + 'slbAppJD/home/banner.png'} alt="" />
+				<img src={assetsOrigin + '/img/slbAppJD/home/banner.png'} alt="" />
 			</section>
 			<section className="day-fruit">
 				<div className="fruit-container">
@@ -170,7 +170,7 @@ const Home = () => {
 				</div>
 			</section>
 			<section className="banner ad">
-				<img src={picDisplayPath + 'slbAppJD/home/ad.png'} alt="" />
+				<img src={assetsOrigin + '/img/slbAppJD/home/ad.png'} />
 			</section>
 			<section className="day-fruit">
 				<div className="fruit-container">

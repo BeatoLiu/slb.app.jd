@@ -36,3 +36,7 @@ export interface GetJDDeliveryAddressMode extends AddJDDeliveryAddressByMemCodeM
  * @description 地址列表
  */
 export  type GetJDDeliveryAddressRes = baseResList<GetJDDeliveryAddressMode>
+
+export interface IDeleteJDDeliveryAddressByDaCodeModel{
+	daCode:number
+}

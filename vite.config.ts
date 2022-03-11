@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import styleImport from 'vite-plugin-style-import'
+import styleImport from "vite-plugin-style-import"
+import { hostName } from "./src/utils/config"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,8 +13,7 @@ export default defineConfig({
 		proxy: {
 			'/api': {
 				target: 'http://192.168.0.161:9007/', // 王
-				// target: 'http://tttest.2qzs.com',
-				// target: 'http://tk.2qzs.com',
+				// target: hostName,
 				changeOrigin: true,
 				rewrite: path => path.replace(/^\/api/, '')
 			}

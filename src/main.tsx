@@ -6,7 +6,7 @@ import App from './App'
 import { Provider } from 'react-redux'
 import store from '@/store'
 
-import.meta.env.MODE === 'development' && (localStorage.token = 'dc5fe5ceee1dc50f698098a923e6ffc9')
+import.meta.env.MODE === 'development' && (localStorage.token = '4ce824b998fc2fd8c089bbf611ef5d46')
 
 ReactDOM.render(
 	<Provider store={store}>

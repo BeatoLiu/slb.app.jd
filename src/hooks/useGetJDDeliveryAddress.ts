@@ -15,14 +15,14 @@ export const useGetJDDeliveryAddress = () => {
 
 	const dispatch = useDispatch()
 	useEffect(() => {
-		if (!addressList.length) {
+		// if (!addressList.length) {
 			getJDDeliveryAddress().then(res => {
 				if (res.resultCode === 1) {
 					setList(res.data)
 					dispatch(setAddressList({ addressList: res.data }))
 				}
 			})
-		}
+		// }
 	}, [])
 	const address = list.find(item => item.daAcquiesceType) || list[0] || {}
 	if (address.aCode && !addressInfo.aCode) {

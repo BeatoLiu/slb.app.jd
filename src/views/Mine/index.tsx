@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 const Index = () => {
 	const navigate = useNavigate()
 	const navList = [
+		{ title: '我的订单', path: '/mine/orderList', isShow: true },
 		{ title: '我的地址', path: '/mine/address', isShow: true },
 		{ title: '发票抬头管理', path: '/mine/invoice', isShow: true }
 	]

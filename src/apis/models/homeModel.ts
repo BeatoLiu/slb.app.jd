@@ -109,7 +109,8 @@ export type GetProductNewStockByIdRes = baseResList<GetProductNewStockByIdItem>
 export interface IGetOrderSubmitOrder {
 	skuNums: SkuItem[]
 	invoiceCode: number
-	daCode: number
+	daCode: number,
+	allianceWalletPassword:string
 	// name: string
 	// areaId: number
 	// address: string
@@ -127,7 +128,8 @@ export interface IGetOrderSubmitOrder {
 }
 interface SkuItem extends SkuNumsItem {
 	price: number
-	bNeedGift: boolean
+	bNeedGift: boolean,
+	skuImgUrl: string
 }
 
 /**

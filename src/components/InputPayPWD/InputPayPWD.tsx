@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Popup, PasswordInput, NumberKeyboard, Dialog } from 'react-vant'
+import React, { useEffect, useState } from "react";
+import { Popup, PasswordInput, NumberKeyboard } from 'react-vant'
 
 import './InputPayPWD.less'
 interface IProps {
@@ -19,16 +19,19 @@ const InputPayPWD = (props: IProps) => {
 	// const store = useStore()
 	// const hasAllianceWalletPwd = computed(() => store.state.user.userInfo.hasAllianceWalletPwd)
 
-	const closePop = (password?: string) => {
+	// const closePop = (password?: string) => {
 		// emit('close', password)
 		// pwd.value = ''
-	}
+	// }
 	const onChange = (val:string) => {
 		setPwd(val)
 		if(val.length === 6) {
 			props.onClose(val)
 		}
 	}
+	useEffect(()=>{
+		setPwd('')
+	},[props.show, props.pwdError])
 	return (
 		<Popup
 			visible={props.show}

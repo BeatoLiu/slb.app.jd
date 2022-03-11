@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { getProductPageNum, getSkuByPage, getProductDetail } from '@/apis/home'
 import { auth } from '@/components/wrapper/auth'
-import { picDisplayPath } from '@/utils/config'
+import { assetsOrigin } from '@/utils/config'
 import { useNavigate } from 'react-router'
 import { GetProductDetailItem, IGetSkuByPageModel } from '@/apis/models/homeModel'
 import { Grid, List, PullRefresh, Search, Sticky } from 'react-vant'
@@ -13,12 +13,12 @@ const HomeCopy = () => {
 	const navigate = useNavigate()
 	const [list, setList] = useState<GetProductDetailItem[]>([])
 	const [linkNav] = useState([
-		{ id: 1, title: '电脑、办公', pageNum: '268678029', icon: picDisplayPath + 'slbApp/home/jd.png' },
-		{ id: 2, title: '美妆护肤', pageNum: '271812810', icon: picDisplayPath + 'slbApp/home/jd.png' },
-		{ id: 3, title: '运动户外', pageNum: '271876525', icon: picDisplayPath + 'slbApp/home/jd.png' },
-		{ id: 4, title: '家居日用', pageNum: '1342', icon: picDisplayPath + 'slbApp/home/jd.png' },
-		{ id: 5, title: '汽车用品', pageNum: '279163024', icon: picDisplayPath + 'slbApp/home/jd.png' },
-		{ id: 6, title: '服饰内衣', pageNum: '269718089', icon: picDisplayPath + 'slbApp/home/jd.png' }
+		{ id: 1, title: '电脑、办公', pageNum: '268678029', icon: assetsOrigin + '/img/slbApp/home/jd.png' },
+		{ id: 2, title: '美妆护肤', pageNum: '271812810', icon: assetsOrigin + '/img/slbApp/home/jd.png' },
+		{ id: 3, title: '运动户外', pageNum: '271876525', icon: assetsOrigin + '/img/slbApp/home/jd.png' },
+		{ id: 4, title: '家居日用', pageNum: '1342', icon: assetsOrigin + '/img/slbApp/home/jd.png' },
+		{ id: 5, title: '汽车用品', pageNum: '279163024', icon: assetsOrigin + '/img/slbApp/home/jd.png' },
+		{ id: 6, title: '服饰内衣', pageNum: '269718089', icon: assetsOrigin + '/img/slbApp/home/jd.png' }
 	])
 	const [pageList, setPageList] = useState<string[]>([])
 	const pageIdx = useRef(0)

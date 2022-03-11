@@ -37,31 +37,56 @@ const Submit = () => {
 		if (!invoiceRef.current) {
 			return Toast('请先填写发票信息')
 		}
-		const params = {
-			daCode: address.daCode,
-			invoiceCode: invoiceRef.current,
-			skuNums: [
-				{
-					skuId: goodsInfo.sku,
-					num: buyNum,
-					price: goodsInfo.jdProductPriceBean.price,
-					bNeedGift: false
-				}
-			]
-		}
-		setLoading(true)
-		getOrderSubmitOrder(params).then(res => {
-			setLoading(false)
-			if (res.resultCode === 1) {
-				setShowInputPayPWD(true)
-			}
-		})
+		setShowInputPayPWD(true)
+		// const params = {
+		// 	daCode: address.daCode,
+		// 	invoiceCode: invoiceRef.current,
+		// 	skuNums: [
+		// 		{
+		// 			skuId: goodsInfo.sku,
+		// 			num: buyNum,
+		// 			price: goodsInfo.jdProductPriceBean.price,
+		// 			bNeedGift: false
+		// 		}
+		// 	]
+		// }
+		// setLoading(true)
+		// getOrderSubmitOrder(params).then(res => {
+		// 	setLoading(false)
+		// 	if (res.resultCode === 1) {
+		// 		setShowInputPayPWD(true)
+		// 	}
+		// })
 
 		// setShowInputPayPWD(true)
 	}
 	const closePop = (pwd?: string) => {
 		if (pwd?.length === 6) {
 			console.log(pwd)
+			const params = {
+				daCode: address.daCode,
+				invoiceCode: invoiceRef.current,
+				allianceWalletPassword: pwd,
+				skuNums: [
+					{
+						skuId: goodsInfo.sku,
+						num: buyNum,
+						price: goodsInfo.jdProductPriceBean.price,
+						bNeedGift: false,
+						skuImgUrl: jdImgPath + goodsInfo.imagePath
+					}
+				]
+			}
+			setLoading(true)
+			getOrderSubmitOrder(params).then(res => {
+				setLoading(false)
+				if (res.resultCode === 1) {
+					setShowInputPayPWD(false)
+					navigate('/productDetail/payResult', { replace: true })
+				} else if (res.resultCode === -2 || res.resultCode === -3) {
+					setPwdError(res.msg)
+				}
+			})
 		} else {
 			setShowInputPayPWD(false)
 		}
@@ -111,22 +136,26 @@ const Submit = () => {
 					<p>￥{freight}</p>
 				</div>
 				<div className="total-fee">
-					合计：<span>￥{payFactSum}</span>
+					小计：<span>￥{payFactSum} </span>
+				</div>
+				<div className="total-fee">
+					通道手续费：6%， 合计：<span>{(payFactSum * 106) / 100} ZSDT</span>
 				</div>
 			</div>
 			<Invoice invoiceRef={invoiceRef} />
 			<SubmitBar
 				label=" "
 				textAlign="left"
-				price={payFactSum * 100}
+				price={payFactSum * 106}
 				buttonText="提交订单"
 				loading={loading}
+				currency="ZSDT"
 				onSubmit={onSubmit}
 			/>
 			<InputPayPWD
 				show={showInputPayPWD}
 				typeName="ZSDT"
-				amount={payFactSum}
+				amount={(payFactSum * 106) / 100}
 				pwdError={pwdError}
 				onClose={closePop}
 			/>

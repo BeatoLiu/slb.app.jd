@@ -1,0 +1,53 @@
+@import '../../../assets/style/local.less';
+.order-detail{
+
+	.order-state{
+		margin-top: @baseMargin;
+		font-size: 18px;
+		text-align:center;
+	}
+	.common{
+		margin-top: @baseMargin;
+		padding: @basePadding;
+		background:#fff;
+		border-radius: 5px;
+	}
+	.common-p{
+		line-height: 26px;
+	}
+	.order-address{
+		.address-da-name{
+			font-weight: bold;
+			span{
+				margin-left: @baseMargin;
+			}
+		}
+		.address-name{
+			color: #aaa;
+		}
+	}
+	.goods-item{
+		.goods-img {
+			width: 40%;
+
+			img {
+				width: 100%;
+			}
+		}
+		.goods-info {
+			padding-left: @basePadding;
+		}
+	}
+	.order-pay-sum{
+		text-align:right;
+
+		span{
+			color:#f30;
+			&::after{
+				display: inline-block;
+				font-size:10px;
+				content: ' ZSDT';
+			}
+		}
+	}
+}

@@ -1,20 +1,26 @@
 import React, { useState } from 'react'
 import { Field, Cell, ActionBar, Switch, Toast, Dialog } from 'react-vant'
 import { auth } from '@/components/wrapper/auth'
-import { addJDDeliveryAddressByMemCode } from '@/apis/address'
+import { addJDDeliveryAddressByMemCode, updateJDDeliveryAddress } from '@/apis/address'
 import ChooseArea, { IAreaType } from '@/components/ChooseArea'
+import { useLocation, useNavigate } from 'react-router'
+import { GetJDDeliveryAddressMode } from '@/apis/models/addressModel'
 
 type IParamsType = 'daName' | 'daMobile' | 'daDetailAddress'
 const Add = () => {
+	const navigate = useNavigate()
+	const location = useLocation()
 	const [visible, setVisible] = useState(false)
-	const [params, setParams] = useState({
-		daName: '',
-		daMobile: '',
-		aCode: 0,
-		aName: '',
-		daDetailAddress: '',
-		daAcquiesceType: 0
-	})
+	const [params, setParams] = useState(
+		(location.state as GetJDDeliveryAddressMode) || {
+			daName: '',
+			daMobile: '',
+			aCode: 0,
+			aName: '',
+			daDetailAddress: '',
+			daAcquiesceType: 0
+		}
+	)
 	const setAddress = (opts: IAreaType) => {
 		setParams(params => ({ ...params, ...opts }))
 	}
@@ -36,15 +42,31 @@ const Add = () => {
 		if (!params.daDetailAddress) {
 			return Toast('请输入详细地址')
 		}
-		addJDDeliveryAddressByMemCode(params).then(res => {
-			// console.log(res,res.resultCode === 1)
-			if (res.resultCode === 1) {
-				Dialog.alert({
-					message: '新建成功'
-				})
-				// Toast.success('新建成功')
-			}
-		})
+		if (location.state) {
+			updateJDDeliveryAddress(params).then(res => {
+				// console.log(res,res.resultCode === 1)
+				if (res.resultCode === 1) {
+					Dialog.alert({
+						message: '修改成功'
+					}).then(() => {
+						navigate('/mine/address', { replace: true })
+					})
+					// Toast.success('新建成功')
+				}
+			})
+		} else {
+			addJDDeliveryAddressByMemCode(params).then(res => {
+				// console.log(res,res.resultCode === 1)
+				if (res.resultCode === 1) {
+					Dialog.alert({
+						message: '新建成功'
+					}).then(() => {
+						navigate('/mine/address', { replace: true })
+					})
+					// Toast.success('新建成功')
+				}
+			})
+		}
 	}
 	return (
 		<div>
@@ -86,6 +108,7 @@ const Add = () => {
 					title="设置默认地址"
 					rightIcon={
 						<Switch
+							defaultChecked={params.daAcquiesceType === 1}
 							size={18}
 							activeColor="#39b9b9"
 							onChange={checked => setParams(params => ({ ...params, daAcquiesceType: Number(checked) }))}
